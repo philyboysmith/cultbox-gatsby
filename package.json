@@ -9,17 +9,32 @@
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-manifest": "^2.0.19",
     "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-postcss": "^2.0.5",
+    "gatsby-plugin-purgecss": "^3.1.0",
     "gatsby-plugin-react-helmet": "^3.0.7",
     "gatsby-plugin-sharp": "^2.0.22",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-source-graphql": "^2.0.10",
     "gatsby-transformer-sharp": "^2.1.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.4.0"
   },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4",
+    "prettier-eslint": "^8.8.2",
+    "tailwindcss": "^0.7.4"
   },
   "keywords": [
     "gatsby"
