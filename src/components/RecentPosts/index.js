@@ -33,7 +33,7 @@ const RecentPosts = () => (
             to={createLocalLink(post.link)}
             className="flex bg-cyan text-white border-b border-white p-2 no-underline"
           >
-            {post.featuredImage && (
+            {false && (
               <img
                 src={post.featuredImage.sourceUrl}
                 className="w-24 h-24 mr-4"
