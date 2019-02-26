@@ -1,5 +1,5 @@
 const config = {
-  wordPressUrl: `http://admin.cultbox.test`,
+  wordPressUrl: process.env.NODE_ENV === 'development' ? 'http://admin.cultbox.test' : 'http://157.230.224.144',
 }
 
 export default config

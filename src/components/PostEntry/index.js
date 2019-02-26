@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 
 const PostEntry = ({ post }) => (
   <div className="">
@@ -15,8 +15,8 @@ const PostEntry = ({ post }) => (
     <h1 className="mb-2" dangerouslySetInnerHTML={{ __html: post.title }} />
     <div className="leading-normal entry" dangerouslySetInnerHTML={{ __html: post.content }} />
   </div>
-);
+)
 
-PostEntry.propTypes = {};
+PostEntry.propTypes = {}
 
-export default PostEntry;
+export default PostEntry

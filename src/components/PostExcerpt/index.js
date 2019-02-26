@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
+import { createLocalLink } from '../utils'
 
 const PostExcerpt = ({ post }) => (
   <h4>
-    <Link to={post.path} className="no-underline pb-4 mb-4 border-b block">
+    <Link to={createLocalLink(post.link)} className="no-underline pb-4 mb-4 border-b block">
       {post.featuredImage && (
         <img
           src={post.featuredImage.sourceUrl}
@@ -17,11 +18,11 @@ const PostExcerpt = ({ post }) => (
       <div className="text-grey-darkest font-light mb-2" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     </Link>
   </h4>
-);
+)
 
-PostExcerpt.propTypes = {};
+PostExcerpt.propTypes = {}
 
-export default PostExcerpt;
+export default PostExcerpt
 
 export const query = graphql`
   fragment PostExcerptFragment on WPGraphQL_Post {
@@ -31,4 +32,4 @@ export const query = graphql`
     slug
     date
   }
-`;
+`

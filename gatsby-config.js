@@ -14,7 +14,10 @@ module.exports = {
         // This is field under which it's accessible
         fieldName: `wpgraphql`,
         // Url to query from
-        url: `http://admin.cultbox.test/graphql`,
+        url:
+          process.env.NODE_ENV === 'development'
+            ? 'http://admin.cultbox.test/graphql'
+            : 'http://157.230.224.144/graphql',
       },
     },
     {

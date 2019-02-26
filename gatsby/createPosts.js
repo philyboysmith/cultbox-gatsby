@@ -76,15 +76,11 @@ module.exports = async ({ actions, graphql }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     posts.forEach((post, key) => {
-      if (key < 10) {
-        console.log(`creating ${  post.path}`)
-      }
       createPage({
         path: post.path,
         component: postTemplate,
         context: {
           post,
-          recent: [],
         },
       })
     })
