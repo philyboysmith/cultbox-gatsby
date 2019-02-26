@@ -65,7 +65,7 @@ module.exports = async ({ actions, graphql }) => {
         allPosts.push(post)
       })
 
-      if (hasNextPage) {
+      if (hasNextPage && pageNumber < 50) {
         pageNumber += 1
         return fetchPosts({ first: 100, after: endCursor })
       }
