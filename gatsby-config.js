@@ -7,6 +7,31 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              providers: {
+                // Important to exclude providers
+                // that adds js to the page.
+                // If you do not need them.
+                include: ['Twitter', 'Instagram'],
+              },
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'posts',
+        imagePath: 'featuredImage.sourceUrl',
+      },
+    },
+    {
       resolve: `gatsby-source-graphql`,
       options: {
         // This type will contain remote schema Query type
