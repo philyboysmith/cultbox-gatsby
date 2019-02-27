@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import Layout from '../components/Layout'
 import PostEntry from '../components/PostEntry'
-import RecentPosts from '../components/RecentPosts'
+
+const RecentPosts = React.lazy(() => import('../components/RecentPosts'))
 
 const Post = props => {
   const { location, pageContext } = props
@@ -15,7 +16,9 @@ const Post = props => {
           <PostEntry post={post} />
         </main>
         <aside className="md:w-64">
-          <RecentPosts />
+          <Suspense fallback={<div>Loading...</div>}>
+            <RecentPosts />
+          </Suspense>
         </aside>
       </div>
     </Layout>
