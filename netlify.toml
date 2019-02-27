@@ -1,2 +1,4 @@
 [[redirects]]
-  /archive/*  http://cultbox.co.uk/:splat  200
+  from = "/archive/*"
+  to = "http://cultbox.co.uk/:splat"
+  status = 200
