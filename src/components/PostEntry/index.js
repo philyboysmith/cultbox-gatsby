@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 
 const PostEntry = ({ post }) => (
   <div className="">
-    {post.featuredImage && (
+    {false && (
       <img
         src={post.featuredImage.sourceUrl}
         className="w-full h-64 mr-4 mb-2"

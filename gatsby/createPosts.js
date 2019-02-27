@@ -16,11 +16,7 @@ module.exports = async ({ actions, graphql }) => {
           excerpt
           content
           link
-          featuredImage {
-            sourceUrl
-            id
-            caption
-          }
+          date
           categories {
             nodes {
               slug
@@ -38,7 +34,7 @@ module.exports = async ({ actions, graphql }) => {
     }
   }  
   `
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const allPosts = []
   let pageNumber = 0
   const fetchPosts = async variables =>
@@ -65,7 +61,7 @@ module.exports = async ({ actions, graphql }) => {
         allPosts.push(post)
       })
 
-      if (hasNextPage) {
+      if (hasNextPage && pageNumber < 5) {
         pageNumber += 1
         return fetchPosts({ first: 100, after: endCursor })
       }
@@ -76,13 +72,17 @@ module.exports = async ({ actions, graphql }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     posts.forEach((post, key) => {
-      createPage({
-        path: post.path,
-        component: postTemplate,
-        context: {
-          post,
-        },
-      })
+      if (post.date < '2019-01-01 06:40:26') {
+        createRedirect({ fromPath: post.path, toPath: `http://cultbox.co.uk/${post.path}`, isPermanent: true })
+      } else {
+        createPage({
+          path: post.path,
+          component: postTemplate,
+          context: {
+            post,
+          },
+        })
+      }
     })
   })
 }
