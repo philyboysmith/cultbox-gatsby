@@ -6,3 +6,5 @@ export const createLocalLink = url => {
   }
   return url.replace(config.wordPressUrl, ``)
 }
+
+export const stripTags = string => string.replace(/(<([^>]+)>)/gi, '')

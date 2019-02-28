@@ -20,13 +20,34 @@
   */
  @tailwind components;
  
+ .entry {
+     @apply leading-normal
+ }
 
  .entry a{
-    @apply text-cyan;
+    @apply text-cyan no-underline border-b-2 border-cyan bg-white;
+    transition: 0.2;
+ }
+ .entry a:hover {
+     @apply bg-cyan text-white
  }
 
  .entry p {
      @apply mb-4
+ }
+
+ .entry h1,
+ .entry h2,
+ .entry h3,
+ .entry h4
+ .entry figure {
+    @apply mb-2
+ }
+ .entry figure {
+     @apply relative mb-4
+ }
+ .entry figcaption {
+     @apply absolute bg-white py-2 px-4 pin-r pin-b text-grey-dark uppercase text-xs
  }
 
  /**

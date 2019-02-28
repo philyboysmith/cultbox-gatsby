@@ -31,9 +31,9 @@ const RecentPosts = () => (
           <Link
             key={post.uri}
             to={createLocalLink(post.link)}
-            className="flex bg-cyan text-white border-b border-white p-2 no-underline"
+            className="flex bg-cyan text-grey-darkest border-b border-white p-2 no-underline"
           >
-            {false && (
+            {post.featuredImage && (
               <img
                 src={post.featuredImage.sourceUrl}
                 className="w-24 h-24 mr-4"

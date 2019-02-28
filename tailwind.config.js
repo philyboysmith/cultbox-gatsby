@@ -24,7 +24,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-const defaultConfig = require('tailwindcss/defaultConfig')();
+const defaultConfig = require('tailwindcss/defaultConfig')()
 
 /*
 |-------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ const colors = {
   transparent: 'transparent',
 
   black: '#22292f',
-  'grey-darkest': '#3d4852',
+  'grey-darkest': '#1d1d1b',
   'grey-darker': '#606f7b',
   'grey-dark': '#8795a1',
   grey: '#b8c2cc',
@@ -128,7 +128,7 @@ const colors = {
   'pink-lightest': '#ffebef',
 
   cyan: '#2bb8ea',
-};
+}
 
 module.exports = {
   /*
@@ -941,4 +941,4 @@ module.exports = {
     important: false,
     separator: ':',
   },
-};
+}

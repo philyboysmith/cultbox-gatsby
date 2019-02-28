@@ -25,13 +25,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: 'posts',
-        imagePath: 'featuredImage.sourceUrl',
-      },
-    },
-    {
       resolve: `gatsby-source-graphql`,
       options: {
         // This type will contain remote schema Query type

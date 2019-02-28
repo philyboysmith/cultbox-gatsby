@@ -13,11 +13,20 @@ const QUERY = graphql`
         nodes {
           uri
           title
+          excerpt
+          content
           link
+          date
           featuredImage {
             sourceUrl
             id
             caption
+          }
+          tags {
+            nodes {
+              slug
+              name
+            }
           }
         }
       }
@@ -25,11 +34,11 @@ const QUERY = graphql`
   }
 `
 
-const Post = props => (
+const Post = ({ location }) => (
   <StaticQuery
     query={QUERY}
     render={data => (
-      <Layout>
+      <Layout location={location}>
         <div className="md:flex">
           <aside className="md:w-48 md:pt-4 border-t-2 border-cyan">Features</aside>
           <main className="flex-1 border-t-2 border-cyan md:mx-8 md:pt-2">

@@ -67,10 +67,10 @@ module.exports = async ({ actions, graphql }) => {
       })
 
       if (hasNextPage) {
-        if (process.env.NODE_ENV === 'development' || pageNumber < 1) {
+        if (process.env.NODE_ENV === 'production' || pageNumber < 1) {
           pageNumber += 1
+          return fetchPosts({ first: 100, after: endCursor })
         }
-        return fetchPosts({ first: 100, after: endCursor })
       }
       return allPosts
     })

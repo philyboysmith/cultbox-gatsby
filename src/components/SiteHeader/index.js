@@ -5,7 +5,7 @@ import { createLocalLink } from '../utils'
 
 import Logo from '../../images/cultbox-logo.svg'
 
-const SiteHeader = ({ activeCategory }) => (
+const SiteHeader = ({ location, activeCategory }) => (
   <StaticQuery
     query={graphql`
       query GET_CATEGORIES {
@@ -32,26 +32,31 @@ const SiteHeader = ({ activeCategory }) => (
     render={data => (
       <div>
         <div className="py-2 md:pt-16">
-          <img src={Logo} alt="cultbox" className="w-64 max-w-sm " />
+          <Link to="/">
+            <img src={Logo} alt="cultbox" className="w-64 max-w-sm " />
+          </Link>
         </div>
         <div className="flex flex-col md:flex-row text-cyan items-center mb-2">
           {data && (
             <nav className="flex-1">
               <ul className="list-reset flex">
-                {data.wpgraphql.categories.nodes.map(cat => (
-                  <li key={cat.link}>
-                    <Link
-                      to={createLocalLink(cat.link)}
-                      className={
-                        activeCategory === cat.slug
-                          ? 'text-cyan no-underline uppercase p-4 md:pl-0 font-bold text-sm '
-                          : 'text-grey-darkest no-underline uppercase p-4 md:pl-0 font-bold text-sm '
-                      }
-                    >
-                      {cat.name}
-                    </Link>
-                  </li>
-                ))}
+                {data.wpgraphql.categories.nodes.map(cat => {
+                  const currentUrlArray = location.pathname.split('/')
+                  return (
+                    <li key={cat.link}>
+                      <Link
+                        to={createLocalLink(cat.link.replace('category/', ''))}
+                        className={
+                          currentUrlArray[1] === cat.slug
+                            ? 'text-cyan no-underline uppercase p-4 md:pl-0 font-bold text-sm '
+                            : 'text-grey-darkest no-underline uppercase p-4 md:pl-0 font-bold text-sm '
+                        }
+                      >
+                        {cat.name}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </nav>
           )}

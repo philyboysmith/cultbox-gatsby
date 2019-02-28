@@ -4,10 +4,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import SiteHeader from '../SiteHeader'
 import SiteFooter from '../SiteFooter'
 
-const Layout = ({ activeCategory, children }) => (
+const Layout = ({ location, activeCategory, children }) => (
   <div className="font-sans min-h-screen text-grey-darkest">
-    <div className="container">
-      <SiteHeader activeCategory={activeCategory} />
+    <div className="container mb-8">
+      <SiteHeader location={location} activeCategory={activeCategory} />
       <main>{children}</main>
     </div>
     <SiteFooter />
