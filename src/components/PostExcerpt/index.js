@@ -7,7 +7,6 @@ import PostMeta from '../PostMeta'
 
 const PostExcerpt = ({ post }) => (
   <div className="no-underline pb-4 mb-4 border-b block">
-    {console.log(post)}
     <Link to={createLocalLink(post.link)} className="no-underline">
       {post.featuredImage && (
         <img
