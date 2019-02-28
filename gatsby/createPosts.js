@@ -79,8 +79,8 @@ module.exports = async ({ actions, graphql }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
 
     posts.forEach((post, key) => {
-      if (post.date < '2019-01-01 00:00:00') {
-        if (process.env.NODE_ENV === 'development') {
+      if (post.date < '2018-01-01 00:00:00') {
+        if (process.env.NODE_ENV === 'production') {
           createRedirect({ fromPath: post.path, toPath: `/archive/${post.path}`, isPermanent: true })
         }
       } else {
